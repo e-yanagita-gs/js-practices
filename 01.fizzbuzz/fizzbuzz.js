@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 function fizzbuzz(i) {
   if (i % 3 === 0 && i % 5 === 0) {
     return "FizzBuzz";
