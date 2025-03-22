@@ -15,14 +15,14 @@ console.log("日 月 火 水 木 金 土");
 process.stdout.write("   ".repeat(firstDate.getDay()));
 
 for (
-  let currentDate = firstDate.getDate();
-  currentDate <= lastDate.getDate();
-  currentDate++
+  let currentDay = firstDate.getDate();
+  currentDay <= lastDate.getDate();
+  currentDay++
 ) {
-  process.stdout.write(String(currentDate).padStart(2));
+  process.stdout.write(String(currentDay).padStart(2));
   if (
-    (firstDate.getDay() + currentDate) % 7 === 0 ||
-    currentDate === lastDate.getDate()
+    (firstDate.getDay() + currentDay) % 7 === 0 ||
+    currentDay === lastDate.getDate()
   ) {
     console.log();
   } else {
