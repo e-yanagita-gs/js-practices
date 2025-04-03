@@ -7,25 +7,21 @@ db.run(
   function () {
     console.log("テーブルを作成しました");
 
-    db.run(
-      "INSERT INTO books (title) VALUES (?)",
-      ["Sample"],
-      function (error) {
+    db.run("INSERT INTO book (title) VALUES (?)", ["Sample"], function (error) {
+      if (error) {
+        console.error("データの追加に失敗しました:", error.message);
+      }
+
+      db.all("SELECT content FROM books", function (error) {
         if (error) {
-          console.error("データの追加に失敗しました:", error.message);
+          console.error("データの取得に失敗しました:", error.message);
         }
 
-        db.all("SELECT * FROM books", function (error) {
-          if (error) {
-            console.error("データの取得に失敗しました:", error.message);
-          }
-
-          db.run("DROP TABLE books", function () {
-            console.log("テーブルを削除しました");
-            db.close();
-          });
+        db.run("DROP TABLE books", function () {
+          console.log("テーブルを削除しました");
+          db.close();
         });
-      }
-    );
-  }
+      });
+    });
+  },
 );
