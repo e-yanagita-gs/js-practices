@@ -2,9 +2,8 @@ import sqlite3 from "sqlite3";
 
 import { runQuery, allQuery, closeDb } from "./dbOperations.js";
 
-const db = new sqlite3.Database(":memory:");
-
 async function main() {
+  const db = new sqlite3.Database(":memory:");
   await runQuery(
     db,
     "CREATE TABLE books (id INTEGER PRIMARY KEY, title TEXT NOT NULL UNIQUE)",
