@@ -22,5 +22,8 @@ runQuery(
   })
   .then(() => {
     console.log("テーブルを削除しました");
-    closeDb(db);
+    return closeDb(db);
+  })
+  .then(() => {
+    console.log("データベースを閉じました");
   });

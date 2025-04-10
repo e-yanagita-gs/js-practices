@@ -21,7 +21,9 @@ async function main() {
   }
   runQuery(db, "DROP TABLE books");
   console.log("テーブルを削除しました");
-  closeDb(db);
+
+  await closeDb(db);
+  console.log("データベースを閉じました");
 }
 
 main();
