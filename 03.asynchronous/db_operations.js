@@ -9,9 +9,9 @@ export function runQuery(db, query, params) {
   });
 }
 
-export function allQuery(db, query) {
+export function allQuery(db, query, params) {
   return new Promise((resolve, reject) => {
-    db.all(query, (error, rows) => {
+    db.all(query, params, (error, rows) => {
       if (error) {
         reject(error);
       }
