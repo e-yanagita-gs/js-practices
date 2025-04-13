@@ -10,8 +10,8 @@ db.run(
     db.run("INSERT INTO books (title) VALUES (?)", ["Sample"], function () {
       console.log(`データを追加しました。ID: ${this.lastID}`);
 
-      db.all("SELECT * FROM books", (_, result) => {
-        console.log("取得したデータ:", result);
+      db.all("SELECT * FROM books", (_, books) => {
+        console.log("取得したデータ:", books);
 
         db.run("DROP TABLE books", () => {
           console.log("テーブルを削除しました");

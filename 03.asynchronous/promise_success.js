@@ -16,8 +16,8 @@ runQuery(
     console.log(`データを追加しました。ID: ${result.lastID}`);
     return allQuery(db, "SELECT * FROM books");
   })
-  .then((result) => {
-    console.log("取得したデータ:", result);
+  .then((books) => {
+    console.log("取得したデータ:", books);
     return runQuery(db, "DROP TABLE books");
   })
   .then(() => {
