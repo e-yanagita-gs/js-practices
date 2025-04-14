@@ -13,7 +13,7 @@ console.log("テーブルを作成しました");
 try {
   await runQuery(db, "INSERT INTO book (title) VALUES (?)", ["Sample"]);
 } catch (error) {
-  if (error.code === "SQLITE_ERROR") {
+  if (error instanceof Error && error.code === "SQLITE_ERROR") {
     console.error("データの追加に失敗しました:", error.message);
   } else {
     throw error;
@@ -23,7 +23,7 @@ try {
 try {
   await allQuery(db, "SELECT content FROM books");
 } catch (error) {
-  if (error.code === "SQLITE_ERROR") {
+  if (error instanceof Error && error.code === "SQLITE_ERROR") {
     console.error("データの取得に失敗しました:", error.message);
   } else {
     throw error;
