@@ -17,6 +17,7 @@ db.run(
           console.log("テーブルを削除しました");
 
           db.close();
+          console.log("データベースを閉じました");
         });
       });
     });
