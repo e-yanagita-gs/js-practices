@@ -3,8 +3,9 @@ export function runQuery(db, query, params) {
     db.run(query, params, function (error) {
       if (error) {
         reject(error);
+      } else {
+        resolve(this);
       }
-      resolve(this);
     });
   });
 }
@@ -14,8 +15,9 @@ export function allQuery(db, query, params) {
     db.all(query, params, (error, rows) => {
       if (error) {
         reject(error);
+      } else {
+        resolve(rows);
       }
-      resolve(rows);
     });
   });
 }
@@ -25,8 +27,9 @@ export function closeDb(db) {
     db.close((error) => {
       if (error) {
         reject(error);
+      } else {
+        resolve();
       }
-      resolve();
     });
   });
 }
