@@ -16,8 +16,9 @@ db.run(
         db.run("DROP TABLE books", () => {
           console.log("テーブルを削除しました");
 
-          db.close();
-          console.log("データベースを閉じました");
+          db.close(() => {
+            console.log("データベースを閉じました");
+          });
         });
       });
     });
